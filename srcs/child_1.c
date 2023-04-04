@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   child_1.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amouflet <amouflet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: malfwa <malfwa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 20:06:53 by amouflet          #+#    #+#             */
-/*   Updated: 2023/01/27 19:12:03 by amouflet         ###   ########.fr       */
+/*   Updated: 2023/04/04 02:02:31 by malfwa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,7 @@ void	exec_cmd(t_cmd *cmd, int **pfds, int i, int size)
 {
 	if (before_exec(pfds[0], i, pfds[1], size))
 		if (cmd->cmd && cmd->cmd[0])
-		{
-			printf("cmd: %s, arg: %s\n", cmd->cmd[0], cmd->cmd[1]);
 			execve(cmd->cmd[0], cmd->cmd, NULL);
-		}
 	f_err_get_cmd(cmd->begin);
 	exit(2);
 }
